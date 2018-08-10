@@ -9,11 +9,11 @@ Solves a sudoku problem you entered
 
 ## Features to add
 
-- Rigorous inpput verification
+- Rigorous input verification
 - Better execution / algorithm
-- Modularity
-- Better design
-- Other misc features
+- Modularity in code
+- Better design / UI
+- Some other features
 
 ## How to use?
 
