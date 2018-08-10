@@ -2,8 +2,22 @@
 
 Solves a sudoku problem you entered
 
-Enter 0 in place of spaces.
+## Other info
 
-Currently no input verification except same number appearing in a field.
+- Currently no input verification except same number appearing in a field.
+- Some samples with time of execution are in sud.txt
 
-Not the best but it does solve the problems.
+## Features to add
+
+- Rigorous inpput verification
+- Better execution / algorithm
+- Modularity
+- Better design
+- Other misc features
+
+## How to use?
+
+1. Clone this git repo
+2. cd into the folder you downloaded
+3. type make
+4. execute ./sudoku-solver
