@@ -1,3 +1,5 @@
+//  You can copy paste these samples, mostly from newspapers and some from sudoku books
+
 --------1--------// 26.401s
 
 5 3 0 0 7 0 0 0 0
@@ -117,5 +119,3 @@
 9 0 0 8 0 3 0 0 2
 0 0 2 7 0 1 6 0 0
 0 0 6 0 0 0 4 0 0
-
--------011-------//
