@@ -2,10 +2,19 @@
 
 using namespace std;
 
+//  Function for taking the sudoku input
 void inputSudoku(int sud[9][9]);
+
+//  Function to display the sudoku array in a readable format
 void displaySudoku(int sud[9][9]);
+
+//  Function that checks if the sudoku at it's current state is valid
 bool isValid(int sud[9][9]);
+
+//  Function that returns the next empty position
 int getNextZero(int sud[9][9]);
+
+//  Function that does the actual solving
 void solveSudoku(int sud[9][9]);
 
 int main() {
@@ -34,9 +43,8 @@ void inputSudoku(int sud[9][9]) {
         << "\nEnter the sudoku:\n";
 
     for(int i = 0; i < 9; i++) {
-        for(int j = 0; j < 9; j++) {
+        for(int j = 0; j < 9; j++) 
             cin >> sud[i][j];
-        }
     }
 }
 
@@ -72,7 +80,7 @@ void displaySudoku(int sud[9][9]) {
 bool isValid(int sud[9][9]) {
     int store[10] = {0};
 
-    //  rows
+    //  Checking for rows
     for(int i = 0; i < 9; i++) {
         for(int j = 0; j < 9; j++) {
             if(sud[i][j])
@@ -85,7 +93,7 @@ bool isValid(int sud[9][9]) {
         }
     }
 
-    //  cols
+    //  Checking for cols
     for(int i = 0; i < 9; i++) {
         for(int j = 0; j < 9; j++) {
             if(sud[j][i])
@@ -98,7 +106,7 @@ bool isValid(int sud[9][9]) {
         }
     }
 
-    //  blocks
+    //  Checking all blocks
     for(int l = 0; l < 3; l++) {
         for(int m = 0; m < 3; m++) {
             for(int i = 0; i < 3; i++) {
