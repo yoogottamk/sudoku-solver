@@ -43,7 +43,7 @@ void inputSudoku(int sud[9][9]) {
         << "\nEnter the sudoku:\n";
 
     for(int i = 0; i < 9; i++) {
-        for(int j = 0; j < 9; j++) 
+        for(int j = 0; j < 9; j++)
             cin >> sud[i][j];
     }
 }
