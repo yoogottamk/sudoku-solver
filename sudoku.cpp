@@ -17,6 +17,9 @@ int getNextZero(int sud[9][9]);
 //  Function that does the actual solving
 void solveSudoku(int sud[9][9]);
 
+//  Function that fills all the single poosible blocks
+void fillSingles(int sud[9][9]);
+
 int main() {
 
     int sud[9][9];
@@ -26,6 +29,11 @@ int main() {
     displaySudoku(sud);
     if(isValid(sud)) {
         cout << "\nInput looks OK..solving....\n";
+
+        //  ?? seems to delay the result rather than making it fast..
+        //
+        //  fillSingles(sud);
+
         solveSudoku(sud);
         if(getNextZero(sud) < 0) {
             system("clear");
@@ -178,3 +186,35 @@ void solveSudoku(int sud[9][9]) {
     }
 }
 
+void fillSingles(int sud[9][9]) {
+    int pos = getNextZero(sud);
+    int count = 0, found;
+
+    while(pos > 0) {
+        count = 0;
+        found = 0;
+        for(int i = 1; i <= 9; i++){
+            sud[pos / 10][pos % 10] = i;
+            system("clear");
+            displaySudoku(sud);
+            if(isValid(sud)) {
+                count++;
+                found = sud[pos / 10][pos % 10];
+            }
+        }
+
+        if(count > 1)
+            found = -1;
+
+        sud[pos / 10][pos % 10] = found;
+
+        pos = getNextZero(sud);
+    }
+
+    for(int i = 0; i < 9; i++) {
+        for(int j = 0; j < 9; j++) {
+            if(sud[i][j] < 0)
+                sud[i][j] = 0;
+        }
+    }
+}
