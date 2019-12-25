@@ -20,15 +20,21 @@ void solveSudoku(int sud[9][9]);
 //  Function that fills all the single poosible blocks
 void fillSingles(int sud[9][9]);
 
-int main() {
+bool display = false;
+
+int main(int argc, char * argv[]) {
+    if(argc > 1)
+        display = true;
 
     int sud[9][9];
 
-    cout << "\n\t\t\tWelcome to Sudoku Solver\n";
+    if(display) cout << "\n\t\t\tWelcome to Sudoku Solver\n";
+
     inputSudoku(sud);
-    displaySudoku(sud);
+    if(display) displaySudoku(sud);
+
     if(isValid(sud)) {
-        cout << "\nInput looks OK..solving....\n";
+        if(display) cout << "\nInput looks OK..solving....\n";
 
         //  ?? seems to delay the result rather than making it fast..
         //
@@ -36,8 +42,11 @@ int main() {
 
         solveSudoku(sud);
         if(getNextZero(sud) < 0) {
-            system("clear");
-            cout << "\nSOLVED!!\n";
+            if(display) {
+                system("clear");
+                cout << "\nSOLVED!!\n";
+            }
+
             displaySudoku(sud);
         }
     }
@@ -46,9 +55,11 @@ int main() {
 }
 
 void inputSudoku(int sud[9][9]) {
-    cout << "\nFill it as you see it."
-        << "\nEnter a 0 in unfilled."
-        << "\nEnter the sudoku:\n";
+    if(display) {
+        cout << "\nFill it as you see it."
+            << "\nEnter a 0 in unfilled."
+            << "\nEnter the sudoku:\n";
+    }
 
     for(int i = 0; i < 9; i++) {
         for(int j = 0; j < 9; j++)
@@ -57,7 +68,7 @@ void inputSudoku(int sud[9][9]) {
 }
 
 void displaySudoku(int sud[9][9]) {
-    cout << "\nSudoku looks like:\n";
+    if(display) cout << "\nSudoku looks like:\n";
 
     int rc = 0, cc = 0;
 
@@ -156,7 +167,7 @@ void solveSudoku(int sud[9][9]) {
     while(pos >= 0) {
         iter++;
 
-        if(iter >= 10000) {
+        if(display && iter >= 10000) {
             system("clear");
             displaySudoku(sud);
             iter = 0;
@@ -202,8 +213,12 @@ void fillSingles(int sud[9][9]) {
         found = 0;
         for(int i = 1; i <= 9; i++){
             sud[pos / 10][pos % 10] = i;
-            system("clear");
-            displaySudoku(sud);
+
+            if(display) {
+                system("clear");
+                displaySudoku(sud);
+            }
+
             if(isValid(sud)) {
                 count++;
                 found = sud[pos / 10][pos % 10];
