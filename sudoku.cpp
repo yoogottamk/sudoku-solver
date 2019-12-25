@@ -151,9 +151,16 @@ void solveSudoku(int sud[9][9]) {
     st[++top] = getNextZero(sud);
     int pos = st[top];
 
+    int iter = 0;
+
     while(pos >= 0) {
-        system("clear");
-        displaySudoku(sud);
+        iter++;
+
+        if(iter >= 10000) {
+            system("clear");
+            displaySudoku(sud);
+            iter = 0;
+        }
 
         int i = pos / 10;
         int j = pos % 10;
