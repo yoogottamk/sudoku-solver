@@ -21,3 +21,7 @@ Solves a sudoku problem you entered
 2. cd into the folder you downloaded
 3. type make
 4. execute ./sudoku-solver
+
+## Notes
+To see it in live action, run it like
+`./sudoku-solver -d`
