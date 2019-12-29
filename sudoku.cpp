@@ -52,6 +52,9 @@ int main(int argc, char * argv[]) {
             // it failed :'(
             return 1;
         }
+    } else {
+        // it failed :'(
+        return 1;
     }
 
     return 0;
