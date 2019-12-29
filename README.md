@@ -25,3 +25,6 @@ Solves a sudoku problem you entered
 ## Notes
 To see it in live action, run it like
 `./sudoku-solver -d`
+
+## TODO
+Improve this code 😛

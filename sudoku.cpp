@@ -48,6 +48,9 @@ int main(int argc, char * argv[]) {
             }
 
             displaySudoku(sud);
+        } else {
+            // it failed :'(
+            return 1;
         }
     }
 
